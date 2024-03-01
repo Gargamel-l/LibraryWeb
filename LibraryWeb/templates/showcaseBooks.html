@@ -1,0 +1,109 @@
+﻿<head>
+    <title>Ветрина</title>
+</head>
+
+<style>
+    body {
+        background-image: url('https://pro-dachnikov.com/uploads/posts/2023-01/1673548865_pro-dachnikov-com-p-foto-knizhnikh-stellazhei-v-biblioteke-21.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    nav a {
+        color: #d64161;
+        font-size: 3em;
+        margin-left: 50px;
+        text-decoration: none;
+    }
+
+    .book {
+        padding: 20px;
+        margin: 10px;
+        background-color: #8B4513;
+        background: #fafad2;
+        border: 3px #000 ridge;
+        margin-top: 170px;
+    }
+
+    .review {
+        margin-left: 50px;
+        font-size: 20px;
+    }
+</style>
+<div class="jumbotron">
+    <form class="form-signin" action='/addToList' method="post">
+        <label position="central" for="inputName" class="sr-only"><font size="4" color="000" face="Arial Black">Аренда книг<font></label>
+        <input type="text" id="boo_id" class="form-control1" name="book_id" placeholder="Введите номер книги" required autofocus>
+        <style>
+            .form-control1 {
+                margin-left: 39px;
+                position: relative;
+                height: auto;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                padding: 10px;
+                font-size: 16px;
+                margin-top: 20px;
+            }
+
+            .jumbotron {
+                position: absolute;
+                left: 35%;
+                background: #fafad2;
+                border: 5px #000 ridge;
+                width: 470px;
+                padding: 7px 0px 15px 25px;
+                margin-top: 20px;
+                margin-top: 100px;
+            }
+        </style>
+        <button id="btnSignIn" class="btn" type="submit"><font size="2" color="000" face="Arial Black">Арендовать<font></button>
+        <style>
+            .btn {
+                margin-left: 75px;
+                margin-top: 30px;
+                width: 160px;
+                height: 30px
+            }
+        </style>
+        </form>
+
+</div >
+            <div >
+            <ul class="list" >
+            <li role="presentation" class="active" >
+            <a href="profile" > <font size="4" color="black" face="Arial Black" > Личный кабинет</font > </a >
+            </li >
+            <li role="presentation" >
+            <a href="readenBooks" > <font size="4" color="black" face="Arial Black" > прочитанные книги</font > </a >
+            </li >
+            <li role="presentation" >
+            <a href="logout" > <font size="4" color="black" face="Arial Black" > Выйти</font > </a >
+            </li >
+            </ul >
+            <style >
+            .list {
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: #fafad2;
+                border: 3px #000 ridge;
+                width: 200px;
+                padding: 7px 0px 10px 25px;
+                margin: 20px;
+            }
+        </style>
+</div>
+
+{% block content %}
+<h1 align="center" class="text-muted"><font size="10" color="fafad2" face="Arial Black">{% block title %} Книжная ветрина {% endblock %}</font></h1>
+    {% for book in books %}
+<div class='book'>
+    <h3 href="addToList">№{{ book[0] }} - "{{ book[1] }}" авторства {{ book[2] }}.</h3>
+    <i><p>Состоит из {{ book[3] }} страниц.</p></i>
+    <p class='rew'>{{ book[4] }}</p>
+    <i><p>Добавлено: {{ book[5] }}</p></i>
+</div>
+    {% endfor %}
+{% endblock %}

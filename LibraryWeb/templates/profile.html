@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Личный кабинет</title>
+</head>
+<body bgcolor="#71AD2B">
+    <style>
+        body {
+            background-image: url('https://bugaga.ru/uploads/posts/2018-12/1545733729_bibl29.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+    <div class="container">
+        <div class="header">
+            <h3 align="center" class="text-muted"><font size="10" color="fafad2" face="Arial Black">Личный кабинет читателя</font></h3>
+            <style>
+                .text-muted {
+                    margin-top: 50px;
+                    color: #E2A126 !important;
+                    text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
+                }
+            </style>
+            <nav>
+                <ul class="list">
+                    <li role="presentation">
+                        <a href="chooseLibrary" ><font size="4" color="black" face="Arial Black">Список библиотек</font></a>
+                    </li>
+                    <li role="presentation" class="active">
+                        <a href="readenBooks"><font size="4" color="black" face="Arial Black">Прочитанные книги</font></a>
+                    </li>
+                    <li role="presentation">
+                        <a href="logout"><font size="4" color="black" face="Arial Black">Выйти</font></a>
+                    </li>
+                </ul>
+                <style>
+                    .list {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        background: #fafad2;
+                        border: 3px #000 ridge;
+                        width: 200px;
+                        padding: 7px 0px 10px 25px;
+                        margin: 20px;
+                    }
+                </style>
+            </nav>
+
+        </div>
+        <div class='user'>
+            <ul class="profile">
+                <li role="presentation">
+                    <h3>Имя профиля: {{ users[1] }}</h3>
+                    <p>Почта: {{ users[2] }}</p>
+                    <p> Статус аккаунта: {{ users[4] }}</p>
+                </li>
+                <li role="presentation">
+                    <a href="showcaseBooks"><font size="4" color="black" face="Arial Black">Библиотечный список книг</font></a>
+                </li>
+                <li role="presentation" class="active">
+                    <a href="donation"><font size="4" color="black" face="Arial Black">Пожертвовать книгу библиотеке</font></a>
+                </li>
+                <li role="presentation">
+                    <a href="logout"><font size="4" color="black" face="Arial Black">Выйти из аккаунта</font></a>
+                </li>
+            </ul>
+            <style>
+                .profile {
+                    position: absolute;
+                    top: 100;
+                    bottom: 100;
+                    background: #fafad2;
+                    border: 4px #000 ridge;
+                    width: 500px;
+                    padding: 7px 0px 10px 25px;
+                    margin-left: 650px;
+                }
+            </style>
+        </div>
+        <div>
+            <h3 align="center" class="arendedbook"><font size="10" color="fafad2" face="Arial Black">Книга в аренде:</font></h3>
+        </div>
+
+        <style>
+            .book {
+                position: absolute;
+                top: 100;
+                bottom: 100;
+                background: #fafad2;
+                border: 4px #000 ridge;
+                width: 500px;
+                padding: 7px 0px 10px 25px;
+                margin-left: 650px;
+                margin-top: 70px;
+            }
+
+            .arendedbook {
+                margin-top: 200px;
+            }
+        </style>
+
+        <style>
+            .jumbotron {
+                margin-top: 60px;
+            }
+        </style>
+    </div>
+</body>
+{% block content %}
+{% if show_hidden %}
+<h1 align="center" class="text-muted"><font size="10" color="fafad2" face="Arial Black">{% block title %} Арендуемая книга: {% endblock %}</font></h1>
+
+<div class='book'>
+    <h3 href="addToList">№{{ books[0] }} - "{{ books[1] }}" авторства {{ books[2] }}.</h3>
+    <i><p>Состоит из {{ books[3] }} страниц.</p></i>
+    <p class='rewie'>{{ books[4] }}</p>
+    <i><p>Добавлено: {{ books[5] }}</p></i>
+    <a href="passTheBook"><font size="2" color="000" face="Arial Black">Вернуть книгу<font></a>
+</div>
+{% endif %}
+        {% endblock %}
+</html>

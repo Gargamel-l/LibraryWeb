@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Библиотечный учёт</title>
+    <style>
+        body {
+            background-image: url('https://pro-dachnikov.com/uploads/posts/2023-01/1673548865_pro-dachnikov-com-p-foto-knizhnikh-stellazhei-v-biblioteke-21.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        nav a {
+            color: #d64161;
+            font-size: 3em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+
+        .library {
+            padding: 20px;
+            margin: 10px;
+            background-color: #8B4513;
+            background: #fafad2;
+            border: 3px #000 ridge;
+            margin-top: 70px;
+        }
+
+        .review {
+            margin-left: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body bgcolor="#71AD2B">
+    <style>
+        body {
+            background-image: url('https://proprikol.ru/wp-content/uploads/2020/03/kartinki-biblioteka-43.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="list">
+                    <li role="presentation" class="active">
+                        <a href="RSL_Books"><font size="3" color="black" face="Arial Black">Российская государственная библиотека</font></a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#"><font size="3" color="black" face="Arial Black">Дом Пашкова</font></a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#"><font size="3" color="black" face="Arial Black">Библиотека имени И.С.Тургенеева</font></a>
+                    </li>
+                </ul>
+            </nav>
+            <style>
+                .list {
+                    position: absolute;
+                    width: 500px;
+                    padding: 100px 40px 10px 25px;
+                    margin: 100px;
+                    margin-left: 1000px;
+                    line-height: 200px;
+                    margin-top: -0px;
+
+                }
+            </style>
+        </div>
+</body>
+
+{% block content %}
+<h1 align="center" class="text-muted"><font size="10" color="fafad2" face="Arial Black">{% block title %} библиотеки {% endblock %}</font></h1>
+    {% for librarys in librarys %}
+<div class='library'>
+    <h3 href="#">№{{ librarys[0] }} - "{{ librarys[1] }}" авторства {{ librarys[2] }}.</h3>
+    <i><p>Состоит из {{ librarys[3] }} страниц.</p></i>
+</div>
+
+    {% endfor %}
+{% endblock %}
+</html>
