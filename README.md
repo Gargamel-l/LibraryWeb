@@ -1,1 +1,1 @@
-# LibraryWeb
+Creating a python web application using the flask framework. The site has an authorization and login system, as well as a large database of postgresql books that you can rent or donate your books to the selected library
